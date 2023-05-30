@@ -1,13 +1,13 @@
 const sqlPoolPromise = require("./ddbb");
 
 function readRegistros() {
-    sqlPoolPromise
+    return sqlPoolPromise
         .then((pool)=>{
             return pool.request().query("SELECT * FROM contraincendiosh.REGISTROS");
         }).then((res)=>{
-            console.table(res.recordset);
+            return res.recordset;
         }).catch((error)=>{
-            console.log(error);
+            return error;
         });
 }
 
