@@ -1,3 +1,4 @@
 setInterval(() => {
-    console.log("Running en esta mondá...")
+    console.log("Running en esta mondá...");
 }, 1000);
+
