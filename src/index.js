@@ -1,7 +1,11 @@
 require("dotenv").config();
+const readRegistros = require("./db/registrosGateways");
 
 setInterval(() => {
     console.log("Running en esta mondá...");
-    console.log("Test ENV >> ", typeof process.env.TEST);
-}, 1000);
+}, 2000);
+
+setInterval(() => {
+    readRegistros();
+}, 5000);
 
