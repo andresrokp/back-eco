@@ -3,7 +3,7 @@
 require("dotenv").config();
 const express = require("express");
 
-const readRegistros = require("./db/registrosGateways");
+const {readRegistros,readJoinCruzado} = require("./db/registrosGateways");
 
 
 const app = express();
@@ -15,9 +15,18 @@ app.get("/registros/read-all",(rq,rs)=>{
     readRegistros()
         .then((res)=>{
             rs.send(res);
-            console.log(res);
+            console.table(res);
         });
     console.log("mandé esa mierda");
+});
+
+app.get("/joins/reg-hyd-rec-bod",(rq,rs)=>{
+    readJoinCruzado()
+        .then((res)=>{
+            rs.send(res);
+            console.table(res);
+        });
+    console.log("mandé esa otra mierda");
 });
 
 app.listen(3000,()=>{
