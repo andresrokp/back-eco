@@ -5,9 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoSH</title>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        th, td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+        }
+    </style>
 </head>
-<body>
-    <h1>Hello HTML from express</h1>
-    <script src="/script.js"></script>
-</body>
+    <body>
+      <table id="table">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Bodega ID</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Tag ID</th>
+            <th>RSSI</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </body>
+<script src="/script.js"></script>
 </html>

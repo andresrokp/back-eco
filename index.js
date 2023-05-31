@@ -2,9 +2,8 @@
 
 require("dotenv").config();
 const express = require("express");
-// const path = require("path");
 
-// const readRegistros = require("./db/registrosGateways");
+const readRegistros = require("./db/registrosGateways");
 
 
 const app = express();
@@ -12,9 +11,13 @@ const app = express();
 app.use(express.static("public"));
 
 
-app.get("/",()=>{
-// readRegistros().then((res)=>{rs.send(res);});
-// rs.sendFile(__dirname + "/public/index.html");
+app.get("/registros/read-all",(rq,rs)=>{
+    readRegistros()
+        .then((res)=>{
+            rs.send(res);
+            console.log(res);
+        });
+    console.log("mandé esa mierda");
 });
 
 app.listen(3000,()=>{
