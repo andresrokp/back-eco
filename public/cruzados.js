@@ -5,12 +5,13 @@ function renderTable(data) {
     data.forEach((item) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${item.ts}</td>
-            <td>${item.BodegaID}</td>
-            <td>${item.Latitude}</td>
-            <td>${item.Longitude}</td>
+            <td>${(new Date (parseInt(item.ts))).toString().replace(" GMT-0500 (Colombia Standard Time)","")}</td>
+            <td>${item.NombreBodega}</td>
+            <td>${item.NombreRecurso}</td>
+            <td>${item.RecursoID}</td>
+            <td>${item.EstadoTeorico}</td>
+            <td>${item.ActividadAplicacion}</td>
             <td>${item.TagID}</td>
-            <td>${item.Rssi}</td>
         `;
         tableBody.appendChild(row);
     });
@@ -18,7 +19,7 @@ function renderTable(data) {
 
 function fetchDataAndRenderTable() {
     // Make an API request to fetch the JSON data
-    fetch("http://localhost:3000/registros/read-all")
+    fetch("http://localhost:3000/joins/reg-hyd-rec-bod")
         .then((response) => response.json())
         .then((data) => {
             renderTable(data);
