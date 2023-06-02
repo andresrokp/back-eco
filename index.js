@@ -3,7 +3,7 @@
 require("dotenv").config();
 const express = require("express");
 
-const {readRegistros,readJoinCruzado} = require("./db/registrosGateways");
+const {readRegistros,readJoinCruzado,ultimaVistaRec} = require("./db/registrosGateways");
 
 
 const app = express();
@@ -27,6 +27,15 @@ app.get("/joins/reg-hyd-rec-bod",(rq,rs)=>{
             console.table(res);
         });
     console.log("mandé esa otra mierda");
+});
+
+app.get("/joins/ultima-vista",(rq,rs)=>{
+    ultimaVistaRec()
+        .then((res)=>{
+            rs.send(res);
+            console.table(res);
+        });
+    console.log("enviado ultima vista");
 });
 
 app.listen(3000,()=>{
