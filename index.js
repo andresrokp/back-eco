@@ -15,7 +15,7 @@ app.get("/registros/read-all",(rq,rs)=>{
     readRegistros()
         .then((res)=>{
             rs.send(res);
-            console.table(res);
+            // console.table(res);
         });
     console.log("mandé esa mierda");
 });
@@ -24,7 +24,7 @@ app.get("/joins/reg-hyd-rec-bod",(rq,rs)=>{
     readJoinCruzado()
         .then((res)=>{
             rs.send(res);
-            console.table(res);
+            // console.table(res);
         });
     console.log("mandé esa otra mierda");
 });
@@ -33,7 +33,7 @@ app.get("/joins/ultima-vista",(rq,rs)=>{
     ultimaVistaRec()
         .then((res)=>{
             rs.send(res);
-            console.table(res);
+            // console.table(res);
         });
     console.log("enviado ultima vista");
 });
@@ -41,11 +41,4 @@ app.get("/joins/ultima-vista",(rq,rs)=>{
 app.listen(process.env.PORT || 3000,()=>{
     console.log("está escuchando esta cagá");
 });
-
-setInterval(() => {
-    console.log("Running en esta mondá...");
-}, 2000);
-// setInterval(() => {
-//     readRegistros().then((res)=>{console.error(res);});
-// }, 5000);
 
