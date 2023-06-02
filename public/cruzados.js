@@ -2,12 +2,13 @@ function renderTable(data) {
     const tableBody = document.querySelector("#table tbody");
     tableBody.innerHTML = "";
 
-    data.forEach((item) => {
+    data.forEach((item, idx) => {
         const row = document.createElement("tr");
         row.innerHTML = `
+            <td>${idx}</td>
             <td>${(new Date (parseInt(item.ts))).toString().replace(" GMT-0500 (Colombia Standard Time)","")}</td>
-            <td>${item.NombreBodega}</td>
             <td>${item.NombreRecurso}</td>
+            <td>${item.NombreBodega}</td>
             <td>${item.RecursoID}</td>
             <td>${item.EstadoTeorico}</td>
             <td>${item.ActividadAplicacion}</td>
