@@ -17,7 +17,7 @@ function renderTable(data) {
 
 function fetchDataAndRenderTable() {
     // Make an API request to fetch the JSON data
-    fetch("http://localhost:3000/joins/ultima-vista")
+    fetch(`http://${window.location.host}/joins/ultima-vista`)
         .then((response) => response.json())
         .then((data) => {
             renderTable(data);

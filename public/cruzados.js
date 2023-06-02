@@ -20,7 +20,7 @@ function renderTable(data) {
 
 function fetchDataAndRenderTable() {
     // Make an API request to fetch the JSON data
-    fetch("http://localhost:3000/joins/reg-hyd-rec-bod")
+    fetch(`http://${window.location.host}/joins/reg-hyd-rec-bod`)
         .then((response) => response.json())
         .then((data) => {
             renderTable(data);

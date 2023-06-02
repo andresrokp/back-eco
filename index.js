@@ -38,7 +38,7 @@ app.get("/joins/ultima-vista",(rq,rs)=>{
     console.log("enviado ultima vista");
 });
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log("está escuchando esta cagá");
 });
 

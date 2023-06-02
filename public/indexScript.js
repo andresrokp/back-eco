@@ -18,7 +18,7 @@ function renderTable(data) {
 
 function fetchDataAndRenderTable() {
     // Make an API request to fetch the JSON data
-    fetch("http://localhost:3000/registros/read-all")
+    fetch(`http://${window.location.host}/registros/read-all`)
         .then((response) => response.json())
         .then((data) => {
             renderTable(data);
