@@ -7,7 +7,7 @@ function renderTable(data) {
         row.innerHTML = `
             <td>${idx}</td>
             <td>${(new Date (parseInt(item.ts))).toString().replace(" GMT-0500 (Colombia Standard Time)","")}</td>
-            <td>${item.NombreRecurso}</td>
+            <td>${item.NombreEquipo}</td>
             <td>${item.NombreBodega}</td>
             <td>${item.TagID}</td>
         `;

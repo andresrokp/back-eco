@@ -17,15 +17,15 @@ function readJoinCruzado() {
             return pool.request().query(`SELECT
             RGL.ts,
             B.NombreBodega,
-            R.NombreRecurso,
-            TH.RecursoID,
+            R.NombreEquipo,
+            TH.EquipoID,
             R.EstadoTeorico,
             R.ActividadAplicacion,
             RGL.TagID
         FROM
             contraincendiosh.REGISTROS_GATEWAYS_LOGS RGL
             LEFT JOIN contraincendiosh.TAGS_HYDRATION TH ON RGL.TagID = TH.TagID
-            LEFT JOIN contraincendiosh.RECURSOS R ON R.RecursoID = TH.RecursoID
+            LEFT JOIN contraincendiosh.EQUIPOS R ON R.EquipoID = TH.EquipoID
             LEFT JOIN contraincendiosh.BODEGAS B ON RGL.BodegaID = B.BodegaID
         ORDER BY ts DESC`);
         }).then((res)=>{
@@ -44,12 +44,12 @@ function ultimaVistaRec() {
             )
             SELECT 
                 CTE.ts,
-                R.NombreRecurso,
+                R.NombreEquipo,
                 B.NombreBodega,
                 CTE.TagID
             FROM CTE
                 LEFT JOIN contraincendiosh.TAGS_HYDRATION TH ON CTE.TagID = TH.TagID
-                LEFT JOIN contraincendiosh.RECURSOS R ON R.RecursoID = TH.RecursoID
+                LEFT JOIN contraincendiosh.EQUIPOS R ON R.EquipoID = TH.EquipoID
                 LEFT JOIN contraincendiosh.BODEGAS B ON CTE.BodegaID = B.BodegaID
             WHERE posicion = 1
             ORDER BY ts DESC`);
