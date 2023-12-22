@@ -17,7 +17,7 @@ app.get("/registros/read-all",(rq,rs)=>{
             rs.send(res);
             // console.table(res);
         });
-    console.log("sent :: lectura total de registros");
+    console.log("sending :: lectura total de registros...");
 });
 
 app.get("/joins/reg-hyd-rec-bod",(rq,rs)=>{
@@ -26,7 +26,7 @@ app.get("/joins/reg-hyd-rec-bod",(rq,rs)=>{
             rs.send(res);
             // console.table(res);
         });
-    console.log("sent :: registros cruzados con nombre");
+    console.log("sending :: registros cruzados con nombre...");
 });
 
 app.get("/joins/ultima-vista",(rq,rs)=>{
@@ -35,10 +35,10 @@ app.get("/joins/ultima-vista",(rq,rs)=>{
             rs.send(res);
             // console.table(res);
         });
-    console.log("sent :: ultima vista de cada tag");
+    console.log("sending :: ultima vista de cada tag...");
 });
 
 app.listen(process.env.PORT || 3000,()=>{
-    console.log("Servidor es cuhcando en PORT ",process.env.PORT);
+    console.log("Set up :: Servidor escuhcando en PORT ",process.env.PORT);
 });
 

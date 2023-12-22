@@ -10,7 +10,7 @@ const config = {
 const sqlPoolPromise = new sql.ConnectionPool(config)
     .connect()
     .then((pool)=>{
-        console.log("Conectado a esa verga");
+        console.log("Status :: conectado base de datos...");
         return pool;
     })
     .catch((error)=>{
