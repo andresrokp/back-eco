@@ -1,5 +1,12 @@
 [
     {
+      "index": 0,
+      "Timestamp": "2023-10-14 18:08:36",
+      "latitude": 7.00308,
+      "longitude": -73.9113033,
+      "tagsArray": []
+    },
+    {
       "index": 1,
       "Timestamp": "2023-10-14 18:08:46",
       "latitude": 7.00308,
