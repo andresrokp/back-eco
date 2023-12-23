@@ -3,7 +3,18 @@ const dataArray = require("./data.json");
 let index = 0;
 let isRising = false;
 
-function getElement() {
+
+function getElementSpecific(index) {
+    
+    try {
+        return value = dataArray[index];
+    } catch (error) {
+        return 400;
+    }
+
+}
+
+function getElementAutomatic() {
     
     console.log('index out',index);
     const value = dataArray[index];
@@ -16,13 +27,16 @@ function getElement() {
 }
 
 
-module.exports = getElement;
+module.exports = {
+    getElementSpecific,
+    getElementAutomatic
+}
 
 // -------  QUICK TEST
 
 (async ()=>{
     for (let i of dataArray.concat(dataArray)) {
-        const element = getElement();
+        const element = getElementAutomatic();
         console.log(element.index);
     }
 })()
