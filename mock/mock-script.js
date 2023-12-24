@@ -2,17 +2,13 @@ const fs = require("fs");
 const csv = require("csv-parser");
 
 // FILE READING -----
-
-// json
-const dataArrayJson = require("./data.json");
-// csv
-const dataArrayCsv = [];
+const dataArray = [];
 async function loadCsvData(){
     await new Promise((resolve, reject) => {
         fs.createReadStream("./mock/data.csv")
-        .pipe(csv({ headers: true })) // Consider headers row
+        .pipe(csv()) // Consider headers row
         .on("data", (row) => {
-            dataArrayCsv.push(row)
+            dataArray.push(row)
         })
         .on("end", () => {
             resolve()
@@ -24,11 +20,9 @@ async function loadCsvData(){
 };
 
 async function getCsvData() {
-    if (dataArrayCsv.length == 0) await loadCsvData();
-    return dataArrayCsv;
+    if (dataArray.length == 0) await loadCsvData();
+    return dataArray;
 }
-
-
 
 let index = 0;
 let isRising = false;
@@ -36,7 +30,7 @@ let isRising = false;
 function getElementSpecific(index) {
     
     try {
-        return dataArrayJson[index];
+        return dataArray[index];
     } catch (error) {
         return 400;
     }
@@ -46,7 +40,7 @@ function getElementSpecific(index) {
 function getElementAutomatic() {
     
     // console.log("index out",index);
-    const value = dataArrayJson[index];
+    const value = dataArray[index];
     // if reaches endpoints, invert iteration course
     if ( (index == 0) || (index == dataArrayJson.length - 1) ) isRising = !isRising;
     // depending on direction, add or less
@@ -54,9 +48,6 @@ function getElementAutomatic() {
     
     return value
 }
-
-
-
 
 module.exports = {
     getElementSpecific,
