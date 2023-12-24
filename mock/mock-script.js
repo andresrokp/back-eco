@@ -62,6 +62,6 @@ module.exports = {
 //     i;
 // }
 
-(async ()=>{
-    console.log(await getCsvData());
-})()
+// (async ()=>{
+//     console.log(await getCsvData());
+// })()
