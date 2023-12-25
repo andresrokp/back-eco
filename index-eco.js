@@ -47,7 +47,7 @@ app.get("/mock-api/casabe/:index", async (req,res)=>{
     const index = parseInt(req.params.index);
     getCsvData()
     .then((array)=>{
-        res.json(array[index]);
+        res.send(array[index]);
         console.log("sending :: ", array[index]);
     })
 });
