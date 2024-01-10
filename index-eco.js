@@ -48,7 +48,7 @@ app.get("/mock-api/casabe/:index", async (req,res)=>{
     getCsvData()
     .then((array)=>{
         res.send(array[index]);
-        console.log("sending :: ", array[index]);
+        console.log(`sending... BodegaID: ${array[index].BodegaID}, tagsArraySize: ${array[index].tagsArray.length}`);
     })
 });
 
